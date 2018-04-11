@@ -11,10 +11,17 @@ namespace X12Parser
         private Dictionary<string, List<PropCache>> _properties;
 
         private readonly Type _type;
-        public X12Factory(Type t)
+        public X12Factory(Type t): this(t, Assembly.GetEntryAssembly())
+        {
+            //_type = t;
+            //var externalAssembly = Assembly.GetEntryAssembly();
+            //FindClasses(externalAssembly);
+        }
+
+        public X12Factory(Type t, Assembly externalAssembly)
         {
             _type = t;
-            FindClasses();
+            FindClasses(externalAssembly);
         }
 
         public void DumpProperties()
@@ -22,18 +29,24 @@ namespace X12Parser
             _properties.Dump();
         }
 
-        public void FindClasses()
+        public List<PropCache> GetPropertiesForType(string type)
+        {
+            if (_properties.ContainsKey(type)) return _properties[type];
+            else return new List<PropCache>();
+        }
+
+        public void FindClasses(Assembly externalAssembly)
         {
             _properties = new Dictionary<string, List<PropCache>>();
 
             var internalAssembly = Assembly.GetExecutingAssembly();
-            var externalAssembly = Assembly.GetEntryAssembly();
+            //var externalAssembly = Assembly.GetEntryAssembly();
 
             _objects = internalAssembly.GetTypes()
                 .Where(x => x.BaseType == _type)
                 .ToDictionary(x => x.Name, x => x);
 
-            if (internalAssembly != externalAssembly)
+            if (internalAssembly != externalAssembly && externalAssembly != null)
             {
                 var external = externalAssembly.GetTypes()
                     .Where(x => /*x.BaseType == _type ||*/ x.IsSubclassOf(_type))

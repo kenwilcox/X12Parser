@@ -6,9 +6,8 @@ namespace X12Parser
 {
     public static class Parser
     {
-        public static List<X12> Parse(string fileName, X12Factory factory)
+        public static List<X12> ParseText(string text, X12Factory factory)
         {
-            var text = File.ReadAllText(fileName);
             var segments = text.Split(new[] { '~' }, StringSplitOptions.RemoveEmptyEntries);
             var list = new List<X12>();
             foreach (var segment in segments)
@@ -17,6 +16,18 @@ namespace X12Parser
                 list.Add(obj);
             }
             return list;
+        }
+
+        public static List<X12> ParseText(string text)
+        {
+            var factory = new X12Factory(typeof(X12));
+            return ParseText(text, factory);
+        }
+
+        public static List<X12> Parse(string fileName, X12Factory factory)
+        {
+            var text = File.ReadAllText(fileName);
+            return ParseText(text, factory);
         }
 
         public static List<X12> Parse(string fileName)
