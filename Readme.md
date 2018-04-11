@@ -88,7 +88,7 @@ System.ArgumentException: Segment order 2 has already been used on property Auth
 It's noticed that segment order 3 was already defined, so it lets you know it might be four, which would be correct in this case.
 
 ```csharp
- public class ISA : X12
+public class ISA : X12
 {
     [Segment(2, 2, 2)]
     public string AuthorizationInformationQualifier { get; set; }
