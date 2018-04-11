@@ -10,6 +10,12 @@ namespace X12Tester
         {
             Parse835Files(args);
             //Parse277File();
+
+#if DEBUG
+            if (!System.Diagnostics.Debugger.IsAttached) return;
+            Console.Write("Press any key to continue...");
+            Console.ReadKey();
+#endif
         }
         private static void Parse277File()
         {
