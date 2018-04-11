@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2015
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "X12Parser", "X12Parser\X12Parser.csproj", "{A69C2E5A-C9F9-4AB7-991D-1BE444D127A7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "X12Tester", "X12Tester\X12Tester.csproj", "{E168C1D3-31D7-4459-9F48-6504BBE47A1C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{6DDDE736-55B6-4F54-A0A9-D3A8690E7945}"
+	ProjectSection(SolutionItems) = preProject
+		ISDH_BCCP_Companion_Guide_835_V1.0.doc = ISDH_BCCP_Companion_Guide_835_V1.0.doc
+		Readme.md = Readme.md
+		X12-Schematic.gif = X12-Schematic.gif
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A69C2E5A-C9F9-4AB7-991D-1BE444D127A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A69C2E5A-C9F9-4AB7-991D-1BE444D127A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A69C2E5A-C9F9-4AB7-991D-1BE444D127A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A69C2E5A-C9F9-4AB7-991D-1BE444D127A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E168C1D3-31D7-4459-9F48-6504BBE47A1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E168C1D3-31D7-4459-9F48-6504BBE47A1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E168C1D3-31D7-4459-9F48-6504BBE47A1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E168C1D3-31D7-4459-9F48-6504BBE47A1C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C4197592-F880-4A5E-8968-838835B76158}
+	EndGlobalSection
+EndGlobal
