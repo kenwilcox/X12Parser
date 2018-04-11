@@ -101,6 +101,8 @@ System.ArgumentException: Segment order 2 on property AuthorizationInformationQu
 ```
 Note, that segments don't have to be defined in order, but you do have to specify a preceeding order before the order you're currently using. Meaning, you can't define a order or position of 10 without having 1-9 also defined.
 
+#### Length ####
+
 ```csharp
 public class ISA : X12
 {
@@ -130,6 +132,8 @@ public class ISA : X12
 ```
 Doing so will exclude checking the length of the data parsed.
 
+#### Optionals ####
+
 If the field is optional you can define it like so
 ```csharp
 public class ISA : X12
@@ -150,6 +154,8 @@ public class ISA : X12
 ```
 
 All fields marked optional will be set to an empty string, so there should be no nulls.
+
+#### Additional Properties ####
 
 If you would like to add some additional properties to the object, either a calculated property or something else you can, in your own project extend an existing class like so
 
