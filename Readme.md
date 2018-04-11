@@ -121,7 +121,7 @@ System.ArgumentException: Segment AuthorizationInformationQualifier min length i
 
 If you don't care about the length of the data, or the provider doesn't follow what you expect you can exclude the min and max lengths like so
 ```csharp
- public class ISA : X12
+public class ISA : X12
 {
     [Segment(1)]
     public string AuthorizationInformationQualifier { get; set; }
@@ -132,7 +132,7 @@ Doing so will exclude checking the length of the data parsed.
 
 If the field is optional you can define it like so
 ```csharp
- public class ISA : X12
+public class ISA : X12
 {
     [Segment(1, 2, 2, true)]
     public string AuthorizationInformationQualifier { get; set; }
@@ -141,7 +141,7 @@ If the field is optional you can define it like so
 ```
 or like so, if you don't want the length checked
 ```csharp
- public class ISA : X12
+public class ISA : X12
 {
     [Segment(1, true)]
     public string AuthorizationInformationQualifier { get; set; }
