@@ -52,6 +52,7 @@
     <Compile Include="Segments\CAS.cs" />
     <Compile Include="Segments\CLP.cs" />
     <Compile Include="Segments\DTM.cs" />
+    <Compile Include="Segments\DTP.cs" />
     <Compile Include="Segments\GE.cs" />
     <Compile Include="Segments\GS.cs" />
     <Compile Include="Segments\IEA.cs" />
