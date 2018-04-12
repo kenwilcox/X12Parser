@@ -7,7 +7,7 @@ using Xunit;
 
 namespace X12Parser.Tests
 {
-    public class ISATests
+    public class ParserTests
     {
         private X12Factory _factory;
         private List<X12> _sut;
@@ -15,8 +15,12 @@ namespace X12Parser.Tests
 
         //private const string _isa = @"ISA*00*AAAAAAAAAA*11*BBBBBBBBBB*22*123456789012345*33*987654321987654*CCCCCC*DDDD*^*EEEEE*FFFFFFFFF*G*T*:~";
         private const string _isaProperties = @"ISA*AA*BBBBBBBBBB*CC*DDDDDDDDDD*EE*FFFFFFFFFFFFFFF*GG*HHHHHHHHHHHHHHH*IIIIII*JJJJ*K*LLLLL*MMMMMMMMM*N*O*P~";
+        private const string _optionalFoo = @"FOO*REQUIRED*~";
+        private const string _onlyOptional = @"OPT*****HERE~";
+        private const string _minTest = "MIN*123456789~";
+        private const string _maxTest = "MAX*12345678901234567890~";
 
-        public ISATests()
+        public ParserTests()
         {
             // This is only necessary in unit tests because the test runners are typically unmanaged code
             // which makes the call to GetEntryAssembly return null, this way we are handing
@@ -51,6 +55,38 @@ namespace X12Parser.Tests
                 startAt++;
             }
             // position length -1 should be :
+        }
+
+        [Fact]
+        public void TestThat_OptionalFields_WorkAsExpected()
+        {
+            var sut = Parser.ParseText(_optionalFoo, _factory);
+            var foo = sut.FirstOrDefault() as FOO;
+            Assert.Equal("FOO", foo.RecordType);
+            Assert.Equal("REQUIRED", foo.FieldOne);
+            Assert.Equal("", foo.OptionalOne);
+            Assert.Equal("", foo.OptionalTwo);
+        }
+
+        [Fact]
+        public void TestThat_OnlyOptionalFields_WorkAsExpected()
+        {
+            var sut = Parser.ParseText(_onlyOptional, _factory);
+            var opt = sut.FirstOrDefault() as OPT;
+            Assert.Equal("OPT", opt.RecordType);
+            Assert.Equal("HERE", opt.Here);
+        }
+
+        [Fact]
+        public void TestThat_MinLength_IsChecked()
+        {
+            Assert.Throws<ArgumentException>(() => Parser.ParseText(_minTest, _factory));
+        }
+
+        [Fact]
+        public void TestThat_MaxLength_IsChecked()
+        {
+            Assert.Throws<ArgumentException>(() => Parser.ParseText(_maxTest, _factory));
         }
     }
 }
