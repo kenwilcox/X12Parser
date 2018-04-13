@@ -18,6 +18,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "X12Parser.Tests", "tests\X1
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Tests", "_Tests", "{089F4104-2D99-48F9-9ED9-C9AE7B7ED6E5}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Helpers", "_Helpers", "{962BA89E-8976-414D-92D9-0A5C4C55A447}"
+	ProjectSection(SolutionItems) = preProject
+		RubySegmentToCSharpSegment.linq = RubySegmentToCSharpSegment.linq
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
