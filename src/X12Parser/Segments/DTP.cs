@@ -1,0 +1,12 @@
+﻿namespace X12Parser.Segments
+{
+    class DTP : X12
+    {
+        [Segment(1, 3, 3)]
+        public string DateTimeQualifier { get; set; }
+        [Segment(2, 2, 3)]
+        public string DateTimePeriodFormatQualifier { get; set; }
+        [Segment(3, 1, 35)]
+        private string DateTimePeriod { get; set; }
+    }
+}
