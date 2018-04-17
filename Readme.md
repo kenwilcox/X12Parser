@@ -187,6 +187,21 @@ public class IEA : X12
 }
 ```
 
+If there is a segment found and it's not defined by any class you will get a "generic" X12 object that will either look like this:
+```
+*** ISA  ***
+RecordType = ISA
+```
+or like this if the INCLUDERAW conditional compliation symbol is defined
+```
+*** ISA  ***
+RecordType = ISA
+RawValue = ISA*00*          *00*          *ZZ*1223485049     *ZZ*MEDAMERICA     *180222*1200*^*00501*498317667*0*P*:
+
+```
+
+Note, this symbol is defined in a debug build of the X12Parser project already.
+
 I hope this helps. The Doc folder contains other docs I was using, other sources are listed below.
 
 Sources: 
