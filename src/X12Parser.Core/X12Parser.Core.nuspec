@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>X12Parser.Core</id>
+    <version>0.8.0</version>
+    <authors>Ken Wilcox</authors>
+    <owners>Ken Wilcox</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <licenseUrl>https://licenses.nuget.org/MIT</licenseUrl>
+    <projectUrl>https://github.com/kenwilcox/X12Parser</projectUrl>
+    <description>A simple X12 parser for EDI</description>
+    <releaseNotes>X12Parser is a simple parser for X12 format EDI documents. It was not created with any specific format in mind.</releaseNotes>
+    <copyright>Copyright 2018-2020</copyright>
+    <tags>x12 edi 835 277</tags>
+    <repository url="https://github.com/kenwilcox/X12Parser" />
+    <dependencies>
+      <group targetFramework=".NETStandard2.0" />
+    </dependencies>
+  </metadata>
+</package>

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27428.2015
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29709.97
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "X12Parser", "src\X12Parser\X12Parser.csproj", "{A69C2E5A-C9F9-4AB7-991D-1BE444D127A7}"
 EndProject
@@ -23,6 +23,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Helpers", "_Helpers", "{96
 		RubySegmentToCSharpSegment.linq = RubySegmentToCSharpSegment.linq
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "X12Parser.Core", "src\X12Parser.Core\X12Parser.Core.csproj", "{33F86118-428A-4CB5-862C-EDE2A17160FB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "X12Parser.Core.Tests", "tests\X12Parser.Core.Tests\X12Parser.Core.Tests.csproj", "{34F9D8CC-1EFB-446B-A745-27EAA8D0E6B0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,12 +45,21 @@ Global
 		{E6B1129D-2AC0-4A56-BF75-415D3A10F1DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E6B1129D-2AC0-4A56-BF75-415D3A10F1DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E6B1129D-2AC0-4A56-BF75-415D3A10F1DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33F86118-428A-4CB5-862C-EDE2A17160FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33F86118-428A-4CB5-862C-EDE2A17160FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33F86118-428A-4CB5-862C-EDE2A17160FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33F86118-428A-4CB5-862C-EDE2A17160FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34F9D8CC-1EFB-446B-A745-27EAA8D0E6B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34F9D8CC-1EFB-446B-A745-27EAA8D0E6B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34F9D8CC-1EFB-446B-A745-27EAA8D0E6B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34F9D8CC-1EFB-446B-A745-27EAA8D0E6B0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{E6B1129D-2AC0-4A56-BF75-415D3A10F1DF} = {089F4104-2D99-48F9-9ED9-C9AE7B7ED6E5}
+		{34F9D8CC-1EFB-446B-A745-27EAA8D0E6B0} = {089F4104-2D99-48F9-9ED9-C9AE7B7ED6E5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C4197592-F880-4A5E-8968-838835B76158}
