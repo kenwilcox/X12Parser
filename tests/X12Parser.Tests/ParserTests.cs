@@ -18,6 +18,9 @@ namespace X12Parser.Tests
         private const string _onlyOptional = @"OPT*****HERE~";
         private const string _minTest = "MIN*123456789~";
         private const string _maxTest = "MAX*12345678901234567890~";
+        private const string _isaWithCrLf = @"ISA*00*          *00*          *ZZ*610442         *ZZ*0FB            *190326*2111*|*00
+001*
+000000002*0*P*>~";
 
         public ParserTests()
         {
@@ -86,6 +89,18 @@ namespace X12Parser.Tests
         public void TestThat_MaxLength_IsChecked()
         {
             Assert.Throws<ArgumentException>(() => Parser.ParseText(_maxTest, _factory));
+        }
+
+        [Fact]
+        public void TestThat_ThisHandlesCrLf()
+        {
+            var sut = Parser.ParseText(_isaWithCrLf, _factory);
+            var opt = sut.FirstOrDefault() as Segments.ISA;
+            Assert.Equal("ISA", opt.RecordType);
+            // new line in value
+            Assert.Equal("00001", opt.InterchangeControlVersionNumber);
+            // new line before segment
+            Assert.Equal("000000002", opt.InterchangeControlNumber);
         }
     }
 }

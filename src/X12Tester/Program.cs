@@ -26,8 +26,8 @@ namespace X12Tester
 
         private static void Parse835Files(string[] args)
         {
-            var inputPath = @"C:\Users\wilcoxk\Documents\EraSummary\835";
-            var outputPath = @"C:\Users\wilcoxk\Documents\EraSummary\835_parsed";
+            var inputPath = @"C:\temp\835";
+            var outputPath = @"C:\temp\835_parsed";
             Directory.CreateDirectory(outputPath);
             var start = DateTime.Now;
             var counter = 0;
