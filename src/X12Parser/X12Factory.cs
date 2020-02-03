@@ -60,7 +60,7 @@ namespace X12Parser
             }
         }
 
-        public X12 GetX12Item(string data)
+        public X12 GetX12Item(string data, bool dataChecks = true)
         {
             var segments = data.Split('*').ToList();
             var segment = segments.First();
@@ -100,8 +100,11 @@ namespace X12Parser
                 if (prop == null) break;
                 var value = segments[i];
 
-                // Now, check what we've got
-                CheckValue(value, prop.Segment, prop.Property);
+                // Now, check what we've got, if we want to...
+                if (dataChecks)
+                {
+                    CheckValue(value, prop.Segment, prop.Property);
+                }
                 prop.Property.SetValue(obj, value);
             }
 
@@ -141,10 +144,10 @@ namespace X12Parser
         private void CheckValue(string value, Segment seg, PropertyInfo prop)
         {
             if (seg.Optional && string.IsNullOrEmpty(value)) return;
-            if (seg.MinLength.HasValue && seg.MaxLength.HasValue && seg.MaxLength < seg.MinLength) throw new ArgumentException($"Segment {prop.Name} max length of {seg.MaxLength.Value} is less than min length of {seg.MinLength.Value}");
-            if (seg.MinLength.HasValue && seg.MaxLength.HasValue && seg.MinLength > seg.MaxLength) throw new ArgumentException($"Segment {prop.Name} min length of {seg.MinLength.Value} is greater than min length of {seg.MaxLength.Value}");
-            if (seg.MinLength.HasValue && value.Length < seg.MinLength.Value) throw new ArgumentException($"Segment {prop.Name} min length is defined as {seg.MinLength.Value} but length is {value.Length}");
-            if (seg.MaxLength.HasValue && value.Length > seg.MaxLength.Value) throw new ArgumentException($"Segment {prop.Name} max length is defined as {seg.MaxLength.Value} but length is {value.Length}");
+            if (seg.MinLength.HasValue && seg.MaxLength.HasValue && seg.MaxLength < seg.MinLength) throw new ArgumentException($"Segment {prop.ReflectedType.Name}.{prop.Name} max length of {seg.MaxLength.Value} is less than min length of {seg.MinLength.Value}");
+            if (seg.MinLength.HasValue && seg.MaxLength.HasValue && seg.MinLength > seg.MaxLength) throw new ArgumentException($"Segment {prop.ReflectedType.Name}.{prop.Name} min length of {seg.MinLength.Value} is greater than min length of {seg.MaxLength.Value}");
+            if (seg.MinLength.HasValue && value.Length < seg.MinLength.Value) throw new ArgumentException($"Segment {prop.ReflectedType.Name}.{prop.Name} min length is defined as {seg.MinLength.Value} but length is {value.Length}");
+            if (seg.MaxLength.HasValue && value.Length > seg.MaxLength.Value) throw new ArgumentException($"Segment {prop.ReflectedType.Name}.{prop.Name} max length is defined as {seg.MaxLength.Value} but length is {value.Length}");
         }
     }
 }

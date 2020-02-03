@@ -42,13 +42,13 @@ namespace X12Tester
                 counter++;
                 var newFile = file.Replace(inputPath, outputPath);
                 newFile = Path.ChangeExtension(newFile, "txt");
-                var segments = Parser.Parse(file, factory);
+                var segments = Parser.Parse(file, factory, false);
                 using (StreamWriter writer = File.CreateText(newFile))
                 {
                     segments.ForEach(x => x.Dump(writer, $"{Environment.NewLine} *** {x.RecordType}  ***"));
                     writer.Flush();
                 }
-                break;
+                //break;
             }
             var end = DateTime.Now;
             var total = end - start;
