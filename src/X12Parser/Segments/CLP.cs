@@ -3,9 +3,9 @@
     [SegmentName("Claim Payment Information")]
     public class CLP : X12
     {
-        [Segment(1, 0, 38)]
+        [Segment(1, 1, 38)]
         public string ClaimSubmittersIdentifier { get; set; }
-        [Segment(2, 0, 2)]
+        [Segment(2, 1, 2)]
         public string ClaimStatusCode { get; set; }
         [Segment(3, 1, 18)]
         public string Charges { get; set; }
