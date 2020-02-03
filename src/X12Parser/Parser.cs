@@ -8,7 +8,7 @@ namespace X12Parser
     {
         public static List<X12> ParseText(string text, X12Factory factory)
         {
-            var segments = text.Split(new[] { '~' }, StringSplitOptions.RemoveEmptyEntries);
+            var segments = text.Replace("\r\n", "").Split(new[] { '~' }, StringSplitOptions.RemoveEmptyEntries);
             var list = new List<X12>();
             foreach (var segment in segments)
             {

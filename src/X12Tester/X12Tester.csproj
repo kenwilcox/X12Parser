@@ -51,9 +51,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\X12Parser\X12Parser.csproj">
-      <Project>{a69c2e5a-c9f9-4ab7-991d-1be444d127a7}</Project>
-      <Name>X12Parser</Name>
+    <ProjectReference Include="..\X12Parser.Core\X12Parser.Core.csproj">
+      <Project>{33f86118-428a-4cb5-862c-ede2a17160fb}</Project>
+      <Name>X12Parser.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
