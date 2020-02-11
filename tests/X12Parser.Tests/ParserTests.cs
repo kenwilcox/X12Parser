@@ -94,7 +94,9 @@ namespace X12Parser.Tests
         [Fact]
         public void TestThat_ThisHandlesCrLf()
         {
-            var sut = Parser.ParseText(_isaWithCrLf, _factory);
+            // The library does not handle this anymore. There were way too many unexpected
+            // characters in the 835 files I've parsed.
+            var sut = Parser.ParseText(_isaWithCrLf.Replace("\r\n", "").Replace("\n", ""), _factory);
             var opt = sut.FirstOrDefault() as Segments.ISA;
             Assert.Equal("ISA", opt.RecordType);
             // new line in value
