@@ -67,6 +67,7 @@
     <Compile Include="Segments\PER.cs" />
     <Compile Include="PropCache.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Segments\PLB.cs" />
     <Compile Include="Segments\REF.cs" />
     <Compile Include="Segments\SE.cs" />
     <Compile Include="Segment.cs" />

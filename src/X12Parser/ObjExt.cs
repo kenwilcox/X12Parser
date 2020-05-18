@@ -39,8 +39,15 @@ namespace X12Parser
                     return o.ToString();
                 case List<object> enumerable:
                     return "[" + string.Join(",", enumerable.Select(x => x.ToString())) + "]";
+                case IEnumerable<object> enumerable:
+                    return "[" + string.Join(",", enumerable.Select(x => x.ToString())) + "]";
                 case IEnumerable enumerable:
-                    return "[" + string.Join(",", enumerable) + "]";
+                    var ret = "";
+                    foreach (var x in enumerable)
+                    {
+                        ret += x.ToString() + ",";
+                    }
+                    return "[" + ret.TrimEnd(',') + "]";
             }
 
             return "{}";

@@ -38,6 +38,7 @@
     <Compile Include="..\X12Parser\Segments\N4.cs" Link="Segments\N4.cs" />
     <Compile Include="..\X12Parser\Segments\NM1.cs" Link="Segments\NM1.cs" />
     <Compile Include="..\X12Parser\Segments\PER.cs" Link="Segments\PER.cs" />
+    <Compile Include="..\X12Parser\Segments\PLB.cs" Link="Segments\PLB.cs" />
     <Compile Include="..\X12Parser\Segments\REF.cs" Link="Segments\REF.cs" />
     <Compile Include="..\X12Parser\Segments\SE.cs" Link="Segments\SE.cs" />
     <Compile Include="..\X12Parser\Segments\ST.cs" Link="Segments\ST.cs" />
