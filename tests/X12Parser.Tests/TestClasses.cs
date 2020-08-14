@@ -37,4 +37,14 @@
         [Segment(1, 1, 10)]
         public string Exception { get; set; }
     }
+
+    internal class QTY : X12
+    {
+        [Segment(1, true)]
+        public string City { get; set; }
+        [Segment(2, true)]
+        public string State { get; set; }
+        [Segment(3, true)]
+        public string Zip { get; set; }
+    }
 }

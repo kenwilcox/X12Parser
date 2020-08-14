@@ -3,6 +3,10 @@ X12Parser
 
 X12Parser is a simple parser for X12 format EDI documents. It was not created with any specific format in mind. It's not ready for prime time yet, but it does work. YMMV.
 
+```
+PM> Install-Package X12Parser.Core
+```
+
 Usage
 -----
 ```csharp
@@ -207,3 +211,8 @@ I hope this helps. The Doc folder contains other docs I was using, other sources
 Sources: 
  - https://docs.oracle.com/cd/E19398-01/820-1275/agdaw/index.html
 
+
+ Version History
+----------------
+- 0.8.4 Added a `boundsCheck` option. If `true` It will check to make sure your fields in the definition fit within the fields in the data. This is so if your segment definition only has 3 fields, but the data has more than that, this will thow a `FormatException` explaining that we expected 3 fields, but got 7 (for example).
+    - Added MIA, MOA, QTY, RDM, TS2, and TS3 segments

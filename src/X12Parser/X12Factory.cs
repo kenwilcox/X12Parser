@@ -60,7 +60,7 @@ namespace X12Parser
             }
         }
 
-        public X12 GetX12Item(string data, bool dataChecks = true)
+        public X12 GetX12Item(string data, bool dataChecks = true, bool boundsChecks = false)
         {
             var segments = data.Split('*').ToList();
             var segment = segments.First();
@@ -86,6 +86,12 @@ namespace X12Parser
             }
 
             var pc = _properties[segment];
+
+            if (boundsChecks)
+            {
+                if (segments.Count > pc.Count) throw new FormatException($"Segment {segment} has {pc.Count} properties, but we have {segments.Count} values");
+            }
+
             // blank out all optional properties, so we don't have nulls
             foreach (var p in pc.Where(x => x.Segment.Optional))
             {

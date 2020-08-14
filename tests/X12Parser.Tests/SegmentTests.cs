@@ -6,7 +6,7 @@ namespace X12Parser.Tests
 {
     public class SegmentTests
     {
-        private List<X12> _sut;
+        private readonly List<X12> _sut;
 
         public SegmentTests()
         {

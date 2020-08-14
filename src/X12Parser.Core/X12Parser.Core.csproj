@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>0.8.3</Version>
+    <Version>0.8.4</Version>
     <Description>A simple X12 parser for EDI</Description>
     <Copyright>Copyright 2018-2020</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -12,6 +12,10 @@
     <PackageReleaseNotes>X12Parser is a simple parser for X12 format EDI documents. It was not created with any specific format in mind.</PackageReleaseNotes>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>Ken Wilcox</Authors>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>TRACE;INCLUDERAW</DefineConstants>
   </PropertyGroup>
 
   <ItemGroup>
@@ -33,17 +37,23 @@
     <Compile Include="..\X12Parser\Segments\ISA.cs" Link="Segments\ISA.cs" />
     <Compile Include="..\X12Parser\Segments\LQ.cs" Link="Segments\LQ.cs" />
     <Compile Include="..\X12Parser\Segments\LX.cs" Link="Segments\LX.cs" />
+    <Compile Include="..\X12Parser\Segments\MIA.cs" Link="Segments\MIA.cs" />
+    <Compile Include="..\X12Parser\Segments\MOA.cs" Link="Segments\MOA.cs" />
     <Compile Include="..\X12Parser\Segments\N1.cs" Link="Segments\N1.cs" />
     <Compile Include="..\X12Parser\Segments\N3.cs" Link="Segments\N3.cs" />
     <Compile Include="..\X12Parser\Segments\N4.cs" Link="Segments\N4.cs" />
     <Compile Include="..\X12Parser\Segments\NM1.cs" Link="Segments\NM1.cs" />
     <Compile Include="..\X12Parser\Segments\PER.cs" Link="Segments\PER.cs" />
     <Compile Include="..\X12Parser\Segments\PLB.cs" Link="Segments\PLB.cs" />
+    <Compile Include="..\X12Parser\Segments\QTY.cs" Link="Segments\QTY.cs" />
+    <Compile Include="..\X12Parser\Segments\RDM.cs" Link="Segments\RDM.cs" />
     <Compile Include="..\X12Parser\Segments\REF.cs" Link="Segments\REF.cs" />
     <Compile Include="..\X12Parser\Segments\SE.cs" Link="Segments\SE.cs" />
     <Compile Include="..\X12Parser\Segments\ST.cs" Link="Segments\ST.cs" />
     <Compile Include="..\X12Parser\Segments\SVC.cs" Link="Segments\SVC.cs" />
     <Compile Include="..\X12Parser\Segments\TRN.cs" Link="Segments\TRN.cs" />
+    <Compile Include="..\X12Parser\Segments\TS2.cs" Link="Segments\TS2.cs" />
+    <Compile Include="..\X12Parser\Segments\TS3.cs" Link="Segments\TS3.cs" />
     <Compile Include="..\X12Parser\X12.cs" Link="X12.cs" />
     <Compile Include="..\X12Parser\X12Factory.cs" Link="X12Factory.cs" />
   </ItemGroup>

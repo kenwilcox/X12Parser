@@ -50,6 +50,7 @@
     <Compile Include="Segments\AMT.cs" />
     <Compile Include="Segments\BPR.cs" />
     <Compile Include="Segments\CAS.cs" />
+    <Compile Include="Segments\MOA.cs" />
     <Compile Include="Segments\CLP.cs" />
     <Compile Include="Segments\DTM.cs" />
     <Compile Include="Segments\DTP.cs" />
@@ -60,6 +61,7 @@
     <Compile Include="IX12.cs" />
     <Compile Include="Segments\LQ.cs" />
     <Compile Include="Segments\LX.cs" />
+    <Compile Include="Segments\MIA.cs" />
     <Compile Include="Segments\N1.cs" />
     <Compile Include="Segments\N3.cs" />
     <Compile Include="Segments\N4.cs" />
@@ -68,6 +70,8 @@
     <Compile Include="PropCache.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Segments\PLB.cs" />
+    <Compile Include="Segments\QTY.cs" />
+    <Compile Include="Segments\RDM.cs" />
     <Compile Include="Segments\REF.cs" />
     <Compile Include="Segments\SE.cs" />
     <Compile Include="Segment.cs" />
@@ -75,6 +79,8 @@
     <Compile Include="Segments\SVC.cs" />
     <Compile Include="Segments\TRN.cs" />
     <Compile Include="SegmentName.cs" />
+    <Compile Include="Segments\TS2.cs" />
+    <Compile Include="Segments\TS3.cs" />
     <Compile Include="X12.cs" />
     <Compile Include="X12Factory.cs" />
   </ItemGroup>
