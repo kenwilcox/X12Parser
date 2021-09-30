@@ -62,7 +62,7 @@ namespace X12Parser
 
         public X12 GetX12Item(string data, bool dataChecks = true, bool boundsChecks = false)
         {
-            var segments = data.Split('*').ToList();
+            var segments = data.Split(new[] { '*', '|' }).ToList();
             var segment = segments.First();
             if (!_objects.ContainsKey(segment))
             {
