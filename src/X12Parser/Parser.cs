@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.IO;
 
@@ -11,9 +12,9 @@ namespace X12Parser
             //var segments = text.Replace("\r\n", "").Replace("\n", "").Split(new[] { '~' }, StringSplitOptions.RemoveEmptyEntries);
             var segments = text.Split(new[] { '~' }, StringSplitOptions.RemoveEmptyEntries);
             var list = new List<X12>();
-            foreach (var segment in segments)
+            foreach (var (segment, index) in segments.Select((value, index) => (value, index)))
             {
-                var obj = factory.GetX12Item(segment.Trim(), dataChecks, boundsChecks);
+                var obj = factory.GetX12Item(segment.Trim(), index, dataChecks, boundsChecks);
                 list.Add(obj);
             }
             return list;
