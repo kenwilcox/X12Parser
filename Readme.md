@@ -214,5 +214,11 @@ Sources:
 
  Version History
 ----------------
+- 0.8.7 Version 0.8.6 used System.Linq. I thought this was causing an issue with System.Data, but it was just Visual Studio no longer working. Diff in PR #14
+
+- 0.8.6 X12 Base class now has Segment Index, so you know the position of the segment in the document, each segment in just incremented, starting at 0. Diff in PR #13
+
+- 0.8.5 Parser now uses * and | as segment separators
+
 - 0.8.4 Added a `boundsCheck` option. If `true` It will check to make sure your fields in the definition fit within the fields in the data. This is so if your segment definition only has 3 fields, but the data has more than that, this will thow a `FormatException` explaining that we expected 3 fields, but got 7 (for example).
     - Added MIA, MOA, QTY, RDM, TS2, and TS3 segments
