@@ -60,7 +60,7 @@ namespace X12Parser
             }
         }
 
-        public X12 GetX12Item(string data, bool dataChecks = true, bool boundsChecks = false)
+        public X12 GetX12Item(string data, int index, bool dataChecks = true, bool boundsChecks = false)
         {
             var segments = data.Split(new[] { '*', '|' }).ToList();
             var segment = segments.First();
@@ -68,6 +68,7 @@ namespace X12Parser
             {
                 var generic = (X12)Activator.CreateInstance(typeof(X12));
                 generic.RecordType = segment;
+                generic.SegmentIndex = index;
 #if INCLUDERAW
                 generic.RawValue = data;
 #endif
@@ -76,6 +77,7 @@ namespace X12Parser
             var type = _objects[segment];
             var obj = (X12)Activator.CreateInstance(type);
             obj.RecordType = segment;
+            obj.SegmentIndex = index;
 #if INCLUDERAW
             obj.RawValue = data;
 #endif
