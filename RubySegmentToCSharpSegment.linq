@@ -2,7 +2,7 @@
 
 void Main()
 {
-  var file = @"C:\Users\wilcoxk\Documents\GitHub\hippo\lib\hippo\segments\QTY.rb";
+  var file = @"C:\Users\wilcoxk\Documents\GitHub\hippo\lib\hippo\segments\CUR.rb";
   var className = Path.GetFileNameWithoutExtension(file);
   var lines = File.ReadAllLines(file);
   var fields = new List<Field>();
