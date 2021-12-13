@@ -44,8 +44,10 @@
   <ItemGroup>
     <Compile Include="DTP.cs" />
     <Compile Include="GE.cs" />
+    <Compile Include="PLB.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TesterSettings.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
