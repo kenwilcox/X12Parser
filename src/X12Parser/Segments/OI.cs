@@ -1,6 +1,7 @@
 ﻿namespace X12Parser.Segments
 {
 
+    [SegmentName("Other Health Insurance Information")]
     public class OI : X12
     {
         [Segment(1, 1, 2, true)]
@@ -15,7 +16,6 @@
         public string ProviderAgreementCode { get; set; }
         [Segment(6, 1, 1, true)]
         public string ReleaseOfInformationCode { get; set; }
-
     }
 
 }

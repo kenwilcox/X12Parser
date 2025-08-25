@@ -1,5 +1,6 @@
 ﻿namespace X12Parser.Segments
 {
+    [SegmentName("Beginning of Hierarchical Transaction")]
     public class BHT : X12
     {
         [Segment(1, 4, 4)]
@@ -14,6 +15,5 @@
         public string Time { get; set; }
         [Segment(6, 2, 2, true)]
         public string TransactionTypeCode { get; set; }
-
     }
 }
