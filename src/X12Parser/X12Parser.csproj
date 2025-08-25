@@ -8,9 +8,10 @@
     <OutputType>Library</OutputType>
     <RootNamespace>X12Parser</RootNamespace>
     <AssemblyName>X12Parser</AssemblyName>
-    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -48,8 +49,11 @@
     <Compile Include="ObjExt.cs" />
     <Compile Include="Parser.cs" />
     <Compile Include="Segments\AMT.cs" />
+    <Compile Include="Segments\BHT.cs" />
     <Compile Include="Segments\BPR.cs" />
     <Compile Include="Segments\CAS.cs" />
+    <Compile Include="Segments\CLM.cs" />
+    <Compile Include="Segments\HI.cs" />
     <Compile Include="Segments\MOA.cs" />
     <Compile Include="Segments\CLP.cs" />
     <Compile Include="Segments\DTM.cs" />
@@ -66,6 +70,7 @@
     <Compile Include="Segments\N3.cs" />
     <Compile Include="Segments\N4.cs" />
     <Compile Include="Segments\NM1.cs" />
+    <Compile Include="Segments\OI.cs" />
     <Compile Include="Segments\PER.cs" />
     <Compile Include="PropCache.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

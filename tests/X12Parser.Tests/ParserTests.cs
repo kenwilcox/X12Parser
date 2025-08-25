@@ -22,6 +22,7 @@ namespace X12Parser.Tests
         private const string IsaWithCrLf = @"ISA*00*          *00*          *ZZ*610442         *ZZ*0FB            *190326*2111*^*00
 001*
 000000002*0*P*>~";
+        private const string ClmLine = @"CLM*XXX201640759-9*965***23:B:1*Y*A*Y*Y~";
 
         public ParserTests()
         {
@@ -109,6 +110,19 @@ namespace X12Parser.Tests
             Assert.Equal("00001", opt.InterchangeControlVersionNumber);
             // new line before segment
             Assert.Equal("000000002", opt.InterchangeControlNumber);
+        }
+
+        [Fact]
+        public void TestThat_ClmParses()
+        {
+            var sut = Parser.ParseText(ClmLine, _factory);
+            var opt = sut.FirstOrDefault() as Segments.CLM;
+            Assert.NotNull(opt);
+            
+            Assert.Equal("CLM", opt.RecordType);
+            Assert.Equal("XXX201640759-9", opt.ClaimSubmittersIdentifier);
+            Assert.Equal("23:B:1", opt.HealthCareServiceLocationInformation);
+
         }
     }
 }

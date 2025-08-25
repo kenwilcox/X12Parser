@@ -15,7 +15,7 @@ var segments = Parser.Parse(<filename>);
 
 segments will then be either a known list of parsed objects or a "dummy" X12 object that just tells you what segment name it is. The debug build is set up to include the RawValue of the segment line. This is to aid in what is missing.
 
-You do not need to modify the project to include missing segments. The X12Tester project shows some examples of Segments that are defined in that project, but are still used in the X12Parser. There isn't a specific DI container used, it does everything internally. It does look in the X12Parser project as well as your own project for any classes with an eventual base class of X12. Your classes will take precidence over internal classes, so you can change things up as you see fit.
+You do not need to modify the project to include missing segments. The X12Tester project shows some examples of Segments that are defined in that project, but are still used in the X12Parser. There isn't a specific DI container used, it does everything internally. It does look in the X12Parser project as well as your own project for any classes with an eventual base class of X12. Your classes will take precedence over internal classes, so you can change things up as you see fit.
 
 The internal classes so far are those in the 835 files I've seen. The test project includes one for a 277 file. The point being the parser shouldn't know or care about all types that will occur, it can be easily extended.
 
@@ -32,13 +32,13 @@ In a directory of 363 edi documents doing this saved about 10 seconds on my mach
 
 Segments
 --------
-Segment definitions are loosly based off the [Hippo](https://rubygems.org/gems/hippo) Ruby Gem.
+Segment definitions are loosely based off the [Hippo](https://rubygems.org/gems/hippo) Ruby Gem.
 
-An X12 document is based on several segments. They're usually preceeded with a tilde (~) and have either two or three character identifier. X12Parser currently uses that identifier to map, by name, to a class that has that segment defined. So if the Parser finds a segment that is like so:
+An X12 document is based on several segments. They're usually preceded with a tilde (~) and have either two or three character identifier. X12Parser currently uses that identifier to map, by name, to a class that has that segment defined. So if the Parser finds a segment that is like so:
 ```
 ~ISA*...
 ```
-It will look for a coresponding class named ISA that eventually has a base class of X12. If one is found the properties and attributes are then loaded up and cached for the next time it is seen. The class should look like this:
+It will look for a corresponding class named ISA that eventually has a base class of X12. If one is found the properties and attributes are then loaded up and cached for the next time it is seen. The class should look like this:
 
 ```csharp
 public class ISA : X12
@@ -49,7 +49,7 @@ public class ISA : X12
     public string AuthorizationInformation { get; set; }
 }
 ```
-The segment attribute defines the order (position), minimum expected length, maximum expected length and if the segment is optional. All parameters are optional except for the order (position). If you define a minimum length then you need to include a maximum length. Always start a position with 1 since the X12 base class automatically defines segment 0 as the RecordType, which will be the same value as the class name. This was done because every definition I found listed the segments starting with 1 and I wanted to avoid [off by one issues](https://en.wikipedia.org/wiki/Off-by-one_error).
+The segment attribute defines the order (position), minimum expected length, maximum expected length and if the segment is optional. All parameters are optional except for the order (position). If you define a minimum length then you need to include a maximum length. Always start a position with 1 since the X12 base class automatically defines segment 0 as the RecordType, which will be the same value as the class name. This was done because every definition I found listed the segments starting with 1, and I wanted to avoid [off by one issues](https://en.wikipedia.org/wiki/Off-by-one_error).
 
 In order to assist with potential errors the Parser will check your segments for you. It can't tell if you named them correctly, but it does let you know if a segment order has already been used and offers hints as to your error.
 
@@ -103,7 +103,7 @@ In this instance we started our definitions, but we didn't start at 1, so the fo
 ```
 System.ArgumentException: Segment order 2 on property AuthorizationInformationQualifier was used before segment order 1, That doesn't seem correct.
 ```
-Note, that segments don't have to be defined in order, but you do have to specify a preceeding order before the order you're currently using. Meaning, you can't define a order or position of 10 without having 1-9 also defined.
+Note, that segments don't have to be defined in order, but you do have to specify a preceding order before the order you're currently using. Meaning, you can't define an order or position of 10 without having 1-9 also defined.
 
 #### Length ####
 
@@ -191,12 +191,12 @@ public class IEA : X12
 }
 ```
 
-If there is a segment found and it's not defined by any class you will get a "generic" X12 object that will either look like this:
+If there is a segment found, and it's not defined by any class you will get a "generic" X12 object that will either look like this:
 ```
 *** ISA  ***
 RecordType = ISA
 ```
-or like this if the INCLUDERAW conditional compliation symbol is defined
+or like this if the INCLUDERAW conditional compilation symbol is defined
 ```
 *** ISA  ***
 RecordType = ISA
@@ -220,5 +220,5 @@ Sources:
 
 - 0.8.5 Parser now uses * and | as segment separators
 
-- 0.8.4 Added a `boundsCheck` option. If `true` It will check to make sure your fields in the definition fit within the fields in the data. This is so if your segment definition only has 3 fields, but the data has more than that, this will thow a `FormatException` explaining that we expected 3 fields, but got 7 (for example).
+- 0.8.4 Added a `boundsCheck` option. If `true` It will check to make sure your fields in the definition fit within the fields in the data. This is so if your segment definition only has 3 fields, but the data has more than that, this will throw a `FormatException` explaining that we expected 3 fields, but got 7 (for example).
     - Added MIA, MOA, QTY, RDM, TS2, and TS3 segments
