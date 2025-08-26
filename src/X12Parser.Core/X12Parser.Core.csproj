@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>0.8.8</Version>
+    <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
+    <Version>0.8.9</Version>
     <Description>A simple X12 parser for EDI</Description>
     <Copyright>Copyright 2018-2021</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -14,6 +14,7 @@
     <Authors>Ken Wilcox</Authors>
     <AssemblyVersion>0.8.7.0</AssemblyVersion>
     <FileVersion>0.8.7.0</FileVersion>
+    <PackageReadmeFile>Readme.md</PackageReadmeFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -21,6 +22,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="..\..\Readme.md" Pack="true" PackagePath="\"/>
     <Compile Include="..\X12Parser\IX12.cs" Link="IX12.cs" />
     <Compile Include="..\X12Parser\ObjExt.cs" Link="ObjExt.cs" />
     <Compile Include="..\X12Parser\Parser.cs" Link="Parser.cs" />
