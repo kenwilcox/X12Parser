@@ -214,6 +214,8 @@ Sources:
 
  Version History
 ----------------
+- 0.8.9 - tried to add a Readme to the nuget package to remove the warning on nuget.org - no code changes
+- 0.8.8 - just added additional segments. No logic on the parser side was changed.
 - 0.8.7 Version 0.8.6 used System.Linq. I thought this was causing an issue with System.Data, but it was just Visual Studio no longer working. Diff in PR #14
 
 - 0.8.6 X12 Base class now has Segment Index, so you know the position of the segment in the document, each segment in just incremented, starting at 0. Diff in PR #13
