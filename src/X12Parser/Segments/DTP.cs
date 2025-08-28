@@ -8,6 +8,6 @@
         [Segment(2, 2, 3)]
         public string DateTimePeriodFormatQualifier { get; set; }
         [Segment(3, 1, 35)]
-        private string DateTimePeriod { get; set; }
+        public string DateTimePeriod { get; set; }
     }
 }
