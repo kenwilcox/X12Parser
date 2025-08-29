@@ -214,6 +214,7 @@ Sources:
 
  Version History
 ----------------
+- 0.8.10 - DTP DateTimePeriod was private for some reason.
 - 0.8.9 - tried to add a Readme to the nuget package to remove the warning on nuget.org - no code changes
 - 0.8.8 - just added additional segments. No logic on the parser side was changed.
 - 0.8.7 Version 0.8.6 used System.Linq. I thought this was causing an issue with System.Data, but it was just Visual Studio no longer working. Diff in PR #14
