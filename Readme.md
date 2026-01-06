@@ -214,6 +214,7 @@ Sources:
 
  Version History
 ----------------
+- 0.8.11 - Parser now looks for the first non alpha digit to determine what the field sseparator is, and is no longer hard coded to use * or |
 - 0.8.10 - DTP DateTimePeriod was private for some reason.
 - 0.8.9 - tried to add a Readme to the nuget package to remove the warning on nuget.org - no code changes
 - 0.8.8 - just added additional segments. No logic on the parser side was changed.
